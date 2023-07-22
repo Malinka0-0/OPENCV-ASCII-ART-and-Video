@@ -25,7 +25,7 @@ int main() {
     Mat newimg(img.rows, img.cols, CV_8UC1, Scalar(0));
    
     string AsciiChars = " ./`,:;!~+-xmo*#W&8@";
-    int ASCII_COEFF = 255 / (AsciiChars.length() - 1); //Діапазон значень 
+    int ASCII_COEFF = 255 / (AsciiChars.length() - 1); 
 
 
     Size textSize = getTextSize(string(1, AsciiChars[0]), FONT_HERSHEY_SIMPLEX, char_size, 2, nullptr);
