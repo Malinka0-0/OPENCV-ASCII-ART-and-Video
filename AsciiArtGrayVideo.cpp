@@ -17,7 +17,6 @@ Mat ConverFrame(Mat frame, int char_height, int char_width,int CharStepX, int Ch
     Mat newimg(frame.rows,frame.cols, CV_8UC1, Scalar(0));
     for (int x = 0; x < frame.cols; x += CharStepX) {
         for (int y = 0; y < frame.rows; y += CharStepY) {
-
             putText(newimg, string(1, AsciiChars[static_cast<int>(frame.at<uchar>(y, x) / ASCII_COEFF)]), Point(x, y), FONT_HERSHEY_SIMPLEX, Char_size, Scalar(frame.at<uchar>(y, x)), 2);
         }
     }
@@ -27,7 +26,7 @@ int main() {
     // Opem video file 
     VideoCapture video(Path);
 
-    // Перевірка, чи вдалося відкрити відеофайл
+    // Check opening video
     if (!video.isOpened()) {
         cout << "Error" << endl;
         return -1;
@@ -41,9 +40,10 @@ int main() {
     //change step for symbol include width and height
     int CharStepX = char_width * 0.6;
     int CharStepY = char_height * 0.6;
-
+    //Get video size 
     int frame_width = static_cast<int>(video.get(CAP_PROP_FRAME_WIDTH));
     int frame_height = static_cast<int>(video.get(CAP_PROP_FRAME_HEIGHT));
+    //Create new video for record changing frame 
     VideoWriter svideo(PathToSafeAsciiVideo, VideoWriter::fourcc('H', '2', '6', '4'), video.get(CAP_PROP_FPS), Size(frame_width, frame_height));
 
     Mat frame;
@@ -54,15 +54,12 @@ int main() {
         }
         cvtColor(frame, frame, COLOR_BGR2GRAY);
         frame = ConverFrame(frame, char_height, char_width, CharStepX, CharStepY);
-        svideo.write(frame);
-       
-        
-        //imshow("Processed Frame", frame );
+        svideo.write(frame); //recording video
+        //imshow("Processed Frame", frame ); //show converframe
         waitKey(0);
 
     }
 
-    
     video.release();
     svideo.release();
     destroyAllWindows();
