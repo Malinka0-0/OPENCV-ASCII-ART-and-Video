@@ -5,9 +5,8 @@
 using namespace cv;
 using namespace std;
 
-string Path = "C:\\Users\\Administrator\\Downloads\\videoplayback.mp4"; //path to img
-bool SafeVideoOrNot = true; // true - safe img | false - not safe img
-string PathToSafeAsciiVideo = "D:\\Project\\Programing\\ASCII\\Save\\Output.mp4"; //path to safe img \\Output.png - name and format
+string Path = "<your path>"; //path to img
+string PathToSafeAsciiVideo = "<your path>\\Output.mp4"; //path to safe img \\Output.mp4 - name and format
 double Char_size = 0.5; // char size (big size - low quality | small size -  high quality)
 
 string AsciiChars = " ./`,:;!~+-xmo*#W&8@";
