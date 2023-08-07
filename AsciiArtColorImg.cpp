@@ -6,10 +6,10 @@
 using namespace cv;
 using namespace std;
 
-string path = "C:\\Users\\Administrator\\Downloads\\Valheim.jpg"; //path to img
+string path = "<your path>"; //path to img
 bool SafeImgOrNot = true; // true - safe img | false - not safe img
-string PathToSafeAsciiImg = "D:\\Project\\Programing\\ASCII\\Save\\Output.png"; //path to safe img \\Output.png - name and format img
-double char_size= 0.5; // char size (big size - low quality | small size -  high quality)
+string PathToSafeAsciiImg = "<your path>\\Output.png"; //path to safe img \\Output.png - name and format img
+double char_size = 0.3; // char size (big size - low quality | small size -  high quality)
 
 
 int main() {
