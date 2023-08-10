@@ -71,6 +71,7 @@ int main() {
 
         frame = ConverFrame(frame, frame_height, frame_width, CharStepX, CharStepY);
         svideo.write(frame); //recording video
+        imshow("1",frame);
         waitKey(1);
 
     }
